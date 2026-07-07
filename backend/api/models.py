@@ -6,7 +6,7 @@ class Member(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     party = models.CharField(max_length=50, blank=True, null=True)
-    state = models.CharField(max_length=2, blank=True, null=True)
+    state = models.CharField(max_length=50, blank=True, null=True)
     chamber = models.CharField(max_length=20, choices=[
                                ('house', 'House'), ('senate', 'Senate')])
 
