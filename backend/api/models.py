@@ -19,7 +19,7 @@ class Bill(models.Model):
     bill_title = models.TextField()
     status = models.CharField(max_length=50, blank=True, null=True)
     committee = models.CharField(max_length=50, blank=True, null=True)
-    introduced_date = models.DateField()
+    introduced_date = models.DateField(null=True, blank=True)
 
     def __str__(self):
         return f"{self.bill_title} ({self.status}-{self.committee})"
