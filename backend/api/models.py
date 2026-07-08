@@ -35,3 +35,14 @@ class Sponsorship(models.Model):
 
     def __str__(self):
         return f"{self.member} - {self.bill}"
+
+
+class Donor(models.Model):
+    fec_candidate_id = models.CharField(max_length=20, unique=True)
+    member = models.ForeignKey(
+        Member, on_delete=models.CASCADE, null=True, blank=True)
+    total_receipts = models.DecimalField(
+        max_digits=12, decimal_places=2, default=0)
+
+    def __str__(self):
+        return f"FEC record for {self.member if self.member else self.fec_candidate_id}"
